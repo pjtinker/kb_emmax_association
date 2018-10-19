@@ -30,8 +30,6 @@ font-size:20px;
 <table width=100% border=0 cellpadding=2 cellspacing=2>
 <tr>
 <td align=center class=hlabel>GWAS
-<tr><td align=center><span class=plabel style='position:relative;top:-15;'><i>Pilot</i></span>
-<tr><td align=center><a href=# onclick='load("emmax_top.tsv")'>Click here</a> for a sample file
 <tr><td align=center><div id="scatter"></div>
 </table>
 
@@ -42,7 +40,8 @@ font-size:20px;
 <script>
 $(document).ready(function() {
 
-      $("#body").fadeIn(4000, function() {
+      $("#body").fadeIn(1000, function() {
+        load("emmax_top.tsv")
       });
 });
 function checkInput()
