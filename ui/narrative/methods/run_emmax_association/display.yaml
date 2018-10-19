@@ -1,0 +1,48 @@
+#
+# define display information
+#
+name: EMMAX Association
+
+tooltip: |
+    Run GWAS analysis using EMMAX
+
+screenshots: []
+
+icon: icon.png
+
+#
+# define a set of similar methods that might be useful to the user
+#
+suggestions:
+    apps:
+        related:
+            []
+        next:
+            []
+    methods:
+        related:
+            []
+        next:
+            []
+
+#
+# Configure the display and description of parameters
+#
+parameters :
+    variation_obj_ref :
+        ui-name : |
+            Variation Object reference
+        short-hint : |
+            An X/Y/Z style reference to the variation data object.
+    output_file_prefix :
+        ui-name : |
+            Output file prefix
+        short-hint : |
+            Prefix to prepend to EMMAX generated output files.
+    snp_return_count :
+        ui-name : |
+            SNP return count
+        short-hint : |
+            The number of top SNPs to return for plotting.
+description : |
+    <p>This module perform GWAS analysis on SNP variation data using EMMAX </p>

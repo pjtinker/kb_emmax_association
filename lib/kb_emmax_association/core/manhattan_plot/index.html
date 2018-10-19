@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>GWAS Pilot</title>
+<link rel="stylesheet" href="gwas.css" charset="utf-8">
+<script type="text/javascript" src="js/jquery/js/jquery-1.10.2.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="gwas.js" charset="utf-8"></script>
+
+<style>
+.hlabel {
+  font-family:"Arial Black", sans-serif;
+  font-weight:900;
+  color:#FF9900;
+  text-align:center;
+  font-size:72px;
+  margin-top:20px;
+}
+.plabel {
+color:#555555;
+font-family:"Arial Black", sans-serif;
+font-weight:900;
+font-size:20px;
+}
+
+</style>
+</head>
+<body id=body style='margin-top:20px;display:none'>
+<table width=100% border=0 cellpadding=2 cellspacing=2>
+<tr>
+<td align=center class=hlabel>GWAS
+<tr><td align=center><span class=plabel style='position:relative;top:-15;'><i>Pilot</i></span>
+<tr><td align=center><a href=# onclick='load("emmax_top.tsv")'>Click here</a> for a sample file
+<tr><td align=center><div id="scatter"></div>
+</table>
+
+<img id=loading src="image/loading.gif" style='position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;visibility:hidden' >
+</body>
+</html>
+
+<script>
+$(document).ready(function() {
+
+      $("#body").fadeIn(4000, function() {
+      });
+});
+function checkInput()
+{
+  console.log("INSIDE checkInput(), file="+$("#file").val());
+  fullPath = $("#file").val();
+  if (fullPath)
+  { var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+    var filename = fullPath.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);
+    }
+
+    load(filename);
+  }
+}
+</script>

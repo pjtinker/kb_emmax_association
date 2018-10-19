@@ -1,0 +1,88 @@
+{
+    "ver": "0.0.1",
+    "authors": [
+        "pjtinker"
+    ],
+    "contact": "",
+    "categories": ["active"],
+    "widgets": {
+        "input": null,
+        "output": null
+    },
+    "parameters": [ 
+        {
+            "id": "variation_obj_ref",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types": [ "KBaseGwasData.Variations-1.0" ]
+            }
+        },
+        {
+            "id": "output_file_prefix",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [""],
+            "field_type": "text",
+            "text_options":{}
+        },
+        {
+            "id": "snp_return_count",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": ["10000"],
+            "field_type": "text",
+            "text_options":{
+                "valid_ws_types": [],
+                "validate_as" : "int",
+                "min_int" : 1000,
+                "max_int" : 50000
+            }
+        }
+    ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "kb_emmax_association",
+            "method": "emmax_association",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_argument_position": 0
+                },
+                {
+                    "input_parameter": "variation_obj_ref",
+                    "target_property": "variation_obj_ref"
+                },
+                {
+                    "input_parameter": "output_file_prefix",
+                    "target_property": "output_file_prefix"
+                },
+                {
+                    "input_parameter": "snp_return_count",
+                    "target_property": "snp_return_count"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "service_method_output_path": [0,"report_name"],
+                    "target_property": "report_name"
+                },
+                {
+                    "service_method_output_path": [0,"report_ref"],
+                    "target_property": "report_ref"
+                },
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspaceName"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}
