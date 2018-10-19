@@ -57,7 +57,9 @@
                 },
                 {
                     "input_parameter": "variation_obj_ref",
-                    "target_property": "variation_obj_ref"
+                    "target_property": "variation_obj_ref",
+                    "target_type_transform": "resolved-ref"
+
                 },
                 {
                     "input_parameter": "output_file_prefix",
